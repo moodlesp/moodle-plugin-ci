@@ -16,8 +16,9 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Process\ProcessBuilder;
+use MoodlePluginCI\Bridge\MoodlePlugin;
 
-class PHPDocCommand extends AbstractPluginCommand
+class PHPDocCommand extends AbstractMoodleCommand
 {
     use ExecuteTrait;
 
@@ -39,6 +40,16 @@ class PHPDocCommand extends AbstractPluginCommand
     {
         $this->outputHeading($output, 'Moodle PHPDoc Checker on %s');
 
+        // We need local_moodlecheck plugin to run this check.
+        $pluginlocation  = __DIR__.'/../../vendor/moodlehq/moodle-local_moodlecheck';
+        $plugin = new MoodlePlugin($pluginlocation);
+        $directory = $this->moodle->getComponentInstallDirectory($plugin->getComponent());
+        if (!is_dir($directory)) {
+            // Copy plugin into Moodle if it does not exist.
+            $filesystem = new Filesystem();
+            $filesystem->mirror($plugin->directory, $directory);
+        }
+
         $process = $this->execute->passThroughProcess(
             ProcessBuilder::create()
                 ->setPrefix('php')
@@ -49,6 +60,11 @@ class PHPDocCommand extends AbstractPluginCommand
                 ->setWorkingDirectory($this->moodle->directory)
                 ->getProcess()
         );
+
+        if (isset($filesystem)) {
+            // Remove plugin if we added it, so we leave things clean.
+            $filesystem->remove($directory);
+        }
 
         // moodlecheck.php does not return valid exit status,
         // We have to parse output to see if there are errors.
