@@ -1,0 +1,11 @@
+{
+    "package": {
+        "name": "blackboard-open-source/moodle-plugin-ci",
+        "version": "2.5.0.2",
+        "source": {
+          "url": "/home/ruslan/git/moodle-plugin-ci/.git",
+          "type": "git",
+          "reference": "master"
+        }
+    }
+}
