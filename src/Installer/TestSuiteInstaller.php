@@ -112,7 +112,7 @@ class TestSuiteInstaller extends AbstractInstaller
 
         return [
             new Process($curl, null, null, null, 120),
-            new MoodleProcess(sprintf('%s --install', $this->getBehatUtility())),
+            new MoodleProcess(sprintf('%s --install --add-core-features-to-theme', $this->getBehatUtility())),
         ];
     }
 
