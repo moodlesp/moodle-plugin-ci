@@ -112,7 +112,7 @@ class TestSuiteInstaller extends AbstractInstaller
 
         return [
             new Process($curl, null, null, null, 120),
-            new MoodleProcess(sprintf('%s --install --add-core-features-to-theme', $this->getBehatUtility())),
+            new MoodleProcess(sprintf('%s --install', $this->getBehatUtility())),
         ];
     }
 
@@ -143,7 +143,7 @@ class TestSuiteInstaller extends AbstractInstaller
 
         if ($this->plugin->hasBehatFeatures()) {
             $this->getOutput()->debug('Enabling Behat');
-            $processes[] = new MoodleProcess(sprintf('%s --enable', $this->getBehatUtility()));
+            $processes[] = new MoodleProcess(sprintf('%s --enable --add-core-features-to-theme', $this->getBehatUtility()));
         }
         if ($this->plugin->hasUnitTests()) {
             $this->getOutput()->debug('Build PHPUnit config');

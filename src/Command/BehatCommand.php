@@ -46,7 +46,7 @@ class BehatCommand extends AbstractMoodleCommand
 
         $this->setName('behat')
             ->addOption('profile', 'p', InputOption::VALUE_REQUIRED, 'Behat profile to use', 'default')
-            ->addOption('suite', 's', InputOption::VALUE_REQUIRED, 'Behat suite to use (Moodle theme)', 'default')
+            ->addOption('suite', null, InputOption::VALUE_REQUIRED, 'Behat suite to use (Moodle theme)', 'default')
             ->addOption('start-servers', null, InputOption::VALUE_NONE, 'Start Selenium and PHP servers')
             ->addOption('jar', null, InputOption::VALUE_REQUIRED, 'Path to Selenium Jar file', $jar)
             ->addOption('auto-rerun', null, InputOption::VALUE_REQUIRED, 'Number of times to rerun failures', 2)
