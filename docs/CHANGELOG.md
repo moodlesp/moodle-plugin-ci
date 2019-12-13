@@ -9,7 +9,17 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 The format of this change log follows the advice given at [Keep a CHANGELOG](http://keepachangelog.com).
 
 ## [Unreleased]
-No unreleased changes.
+
+## Changed
+- Updated [.travis.dist.yml] with a new `services` section to ensure databases start.
+- Updated [.travis.dist.yml] to remove `openjdk-8-jre-headless`. See
+  [#91](https://github.com/blackboard-open-source/moodle-plugin-ci/issues/91).
+- Updated verion of `moodlehq/moodle-local_ci` to fix Mustache linting. See
+  [#91](https://github.com/blackboard-open-source/moodle-plugin-ci/issues/91).
+- Updated version of `moodlehq/moodle-local_codechecker`.
+
+### Added
+- New help document: [CLI commands and options](CLI.md)
 
 ## [2.5.0] - 2019-02-20
 ### Changed
