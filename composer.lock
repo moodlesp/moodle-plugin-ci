@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d2a2dd2ad794c39dd0cd4417999c5025",
+    "content-hash": "5daa174ad53783108f138609623f9e54",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -102,6 +102,7 @@
                     "email": "jakub.onderka@gmail.com"
                 }
             ],
+            "abandoned": "php-parallel-lint/php-console-color",
             "time": "2018-09-29T17:23:10+00:00"
         },
         {
@@ -146,6 +147,7 @@
                     "homepage": "http://www.acci.cz/"
                 }
             ],
+            "abandoned": "php-parallel-lint/php-console-highlighter",
             "time": "2015-04-20T18:58:01+00:00"
         },
         {
@@ -193,6 +195,7 @@
             ],
             "description": "This tool check syntax of PHP files about 20x faster than serial check.",
             "homepage": "https://github.com/JakubOnderka/PHP-Parallel-Lint",
+            "abandoned": "php-parallel-lint/php-parallel-lint",
             "time": "2015-12-15T10:42:16+00:00"
         },
         {
@@ -254,11 +257,11 @@
         },
         {
             "name": "moodlehq/moodle-local_codechecker",
-            "version": "2.9.3",
+            "version": "2.9.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moodlehq/moodle-local_codechecker.git",
-                "reference": "v2.9.3"
+                "reference": "v2.9.5"
             },
             "type": "library",
             "autoload": {
